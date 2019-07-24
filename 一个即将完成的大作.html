@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <form id="nibaba" action="">
+        <div>
+            <input type="text" id="zh" name="zh" placeholder="请输入账号">
+        </div>
+        <div>
+            <input type="password" id="mm" name="mm" placeholder="请输入密码">
+        </div>
+        <div>
+            <input type="submit" value="提交"  onclick="login()">
+            <input type="submit" value="注册"  onclick="registered()">
+        </div>
+    </form>
+    <script>
+        //登录
+        function login(){
+            var zh = document.getElementById("zh");
+            var mm = document.getElementById("mm");
+            //只允许输入数字和密码
+            var repPass = new RegExp("^[A-Za-z0-9]+$");
+            //不允许账号为空
+            if (zh.value==""){
+                alert("用户名不能为空");
+                zh.value = null;
+                zh.focus();
+                return;
+            }
+            //不允许密码为空
+            if (mm.value==""){
+                alert("密码不能为空");
+                mm.value = null;
+                mm.focus();
+                return;
+            }
+            //密码框内只能输入数字和字母
+            if (!repPass.test(mm.value)){
+                mm.value=null;
+                mm.focus();
+                alert("谁让你不输入数字和密码的 小老弟？？？");
+                return;
+            }
+            //密码输入长度在5-15个字符
+           if (mm.value.length>15){
+                mm.value=null;
+                mm.focus();
+                alert("输的有点多吧 小老弟！！");
+                return;
+           }
+           if (mm.value.length<5){
+                mm.value=null;
+                mm.focus();
+                alert("输的有点少吧 小老弟！！");
+                return;
+           }
+            document.getElementById("nibaba").submit();
+
+            if(zh=="2432234972"||mm=="zx123123"){
+                location.href="https://www.baidu.com/";
+            }
+        }
+        
+    </script>
+</body>
+</html>
